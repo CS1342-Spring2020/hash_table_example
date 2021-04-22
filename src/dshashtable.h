@@ -6,8 +6,8 @@
 #include <iostream>
 #include <algorithm>
 
+// A way to have code disabled or enabled... ex: print statements for debugging
 #define DEBUG true
-#define DEBUG2 true
 
 template <typename K, typename V>
 class hash_table {
@@ -37,6 +37,8 @@ public:
     table[location].push_back(e);
   }
 
+  //this function needs work because all execution paths don't
+  //lead to a return value.
   V& get_value(const K& theKey){
     auto location = std::hash<K>{}(theKey) % table_size;
     for(auto &c : table[location]) {
